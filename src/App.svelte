@@ -1,6 +1,7 @@
 <script>
     import bmtLogo from './assets/bmtlogo1.png'
     import { ClerkProvider, SignIn, UserButton, SignedIn, SignedOut} from './lib/clerk/index.js';
+    import WikiList from './lib/wiki/WikiList.svelte'
 
     let url = new URL(window.location);
     let page = url.pathname;
@@ -29,6 +30,12 @@
   <span class="mean">
   <a class="btn" href="/wiki"><button>Wikipedia</button></a>
   </span>
+
+  {#if page === '/wiki' || page === '/'}
+    <div class="card">
+      <WikiList />
+    </div>
+  {/if}
   </SignedIn>
 </main>
 
